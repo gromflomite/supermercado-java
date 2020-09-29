@@ -5,10 +5,8 @@ $(document).ready(function() {
 });
 
 function init() {
-	console.log('Documento cargado y listo');
-	
+	console.log('Documento cargado y listo');	
 }
-
 
 function cifrar() {
 		
@@ -34,8 +32,7 @@ function cifrar() {
 		}	
 				
 		//enviar formulario
-		return true; // si ponemos false no se envia el formulario
-		
+		return true; // si ponemos false no se envia el formulario		
 }
 
 

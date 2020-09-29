@@ -25,7 +25,7 @@ public class UsuarioDAOImpl implements UsuarioDAO {
 	static final String SQL_EXISTE            = " SELECT u.id, u.nombre, contrasenia, id_rol, r.nombre AS 'nombre_rol' FROM usuario AS u INNER JOIN rol AS r ON u.id_rol = r.id WHERE u.nombre = ? AND contrasenia = ? ; ";
 
 	// executeUpdate => int
-	static final String SQL_INSERT = " INSERT INTO usuario(nombre, contrasenia, id_rol) VALUES( ? , ? , ? ); ";
+	static final String SQL_INSERT = " INSERT INTO usuario(nombre, contrasenia, id_rol, fecha_nacimiento) VALUES(? , MD5(?), ?, ?); ";
 	static final String SQL_DELETE = " DELETE FROM usuario WHERE id = ? ;";
 	static final String SQL_UPDATE = " UPDATE usuario SET nombre = ?, contrasenia = ? , id_rol = ? WHERE id = ? ; ";
 
@@ -113,33 +113,38 @@ public class UsuarioDAOImpl implements UsuarioDAO {
 	}
 
 	@Override
-	public Usuario insert(Usuario pojo) throws Exception {
+	public Usuario insert(Usuario newUser) throws Exception {
 
-		try (Connection con = ConnectionManager.getConnection();
-				PreparedStatement pst = con.prepareStatement(SQL_INSERT, PreparedStatement.RETURN_GENERATED_KEYS);) {
+	    try (
+		    Connection dbConnection = ConnectionManager.getConnection(); 
+		    PreparedStatement preparedStatement = dbConnection.prepareStatement(SQL_INSERT, PreparedStatement.RETURN_GENERATED_KEYS);) {
 
-			pst.setString(1, pojo.getNombre() );
-			pst.setString(2, pojo.getContrasenia() );
-			pst.setInt(3, pojo.getRol().getId() );
-			
-			LOG.debug(pst);
-			int affectedRows = pst.executeUpdate();
-			if (affectedRows == 1) {
+		preparedStatement.setString(1, newUser.getNombre());
+		preparedStatement.setString(2, newUser.getContrasenia());
+		preparedStatement.setInt(3, newUser.getRol().getId());
+		preparedStatement.setString(4, newUser.getDob());
 
-				try (ResultSet rsKeys = pst.getGeneratedKeys()) {
+		LOG.debug(preparedStatement);
 
-					if (rsKeys.next()) {
-						pojo.setId(rsKeys.getInt(1));
-					}
-				}
+		int affectedRows = preparedStatement.executeUpdate();
+		if (affectedRows == 1) {
 
-			} else {
-				throw new Exception("No se puede insertar registro " + pojo);
+		    try (ResultSet rsKeys = preparedStatement.getGeneratedKeys()) {
+
+			if (rsKeys.next()) {
+			    newUser.setId(rsKeys.getInt(1));
 			}
+		    }
+
+		} else {
+		    
+		    throw new Exception("No se puede insertar registro " + newUser);
 
 		}
 
-		return pojo;
+	    }
+
+	    return newUser;
 	}
 
 	@Override

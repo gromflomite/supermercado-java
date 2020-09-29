@@ -1,57 +1,65 @@
 package com.ipartek.formacion.modelo.pojo;
 
 public class Usuario {
-	
-	private int id;
-	private String nombre;
-	private String contrasenia;	
-	private Rol rol;
-	
-	public Usuario() {
-		super();
-		this.id = 0;
-		this.nombre = "";
-		this.contrasenia = "";
-		this.rol = new Rol();
-	}
 
-	public int getId() {
-		return id;
-	}
+    private int id;
+    private String nombre;
+    private String contrasenia;
+    private String dob;
+    private Rol rol;
 
-	public void setId(int id) {
-		this.id = id;
-	}
+    public Usuario() {
+	super();
+	this.id = 0;
+	this.nombre = "";
+	this.contrasenia = "";
+	this.dob = "";
+	this.rol = new Rol();
+    }
 
-	public String getNombre() {
-		return nombre;
-	}
+    public int getId() {
+	return id;
+    }
 
-	public void setNombre(String nombre) {
-		this.nombre = nombre;
-	}
+    public void setId(int id) {
+	this.id = id;
+    }
 
-	public String getContrasenia() {
-		return contrasenia;
-	}
+    public String getNombre() {
+	return nombre;
+    }
 
-	public void setContrasenia(String contrasenia) {
-		this.contrasenia = contrasenia;
-	}
+    public void setNombre(String nombre) {
+	this.nombre = nombre;
+    }
 
-	public Rol getRol() {
-		return rol;
-	}
+    public String getContrasenia() {
+	return contrasenia;
+    }
 
-	public void setRol(Rol rol) {
-		this.rol = rol;
-	}
+    public void setContrasenia(String contrasenia) {
+	this.contrasenia = contrasenia;
+    }
 
-	@Override
-	public String toString() {
-		return "Usuario [id=" + id + ", nombre=" + nombre + ", contrasenia=" + contrasenia + ", rol=" + rol + "]";
-	}
+    public String getDob() {
+	return dob;
+    }
 
-	
+    public void setDob(String dob) {
+	this.dob = dob;
+    }
+
+    public Rol getRol() {
+	return rol;
+    }
+
+    public void setRol(Rol rol) {
+	this.rol = rol;
+    }
+
+    @Override
+    public String toString() {
+	return "Usuario [id=" + id + ", nombre=" + nombre + ", contrasenia=" + contrasenia + ", dob=" + dob + ", rol=" + rol + "]";
+    }
 
 }

@@ -3,15 +3,13 @@
    @version: 1.0
    @github: .......
 ************************************************************/
-
 main[role="main"] {
-    margin-top: 4rem;
-    min-height: 80vh;
+	margin-top: 4rem;
+	min-height: 80vh;
 }
 
-
 footer {
-    color: #FFF;
+	color: #FFF;
 }
 
 img.responsive {
@@ -19,32 +17,34 @@ img.responsive {
 	height: auto;
 }
 
-.form-login {
-    width: 100%;
-    max-width: 330px;
-    padding: 15px;
-    margin: auto;
+#register-form, #login-form {
+	width: 100%;
+	max-width: 330px;
+	padding: 15px;	
+	margin-top: 5em;
+}
+
+#dob-label {
+	color: #495057;	
 }
 
 .form-producto {
-    width: 100%;
-    max-width: 400px;
-    padding: 15px;
-    margin: auto;
+	width: 100%;
+	max-width: 400px;
+	padding: 15px;
+	margin: auto;
 }
 
 td {
-    vertical-align: middle !important;    
+	vertical-align: middle !important;
 }
-
 
 #login i {
-    display: block;
-    text-align: center;
-    font-size: 3rem;
-    margin-bottom: 1rem;
+	display: block;
+	text-align: center;
+	font-size: 3rem;
+	margin-bottom: 1rem;
 }
-
 
 .row-card {
 	display: flex;
@@ -61,5 +61,3 @@ td {
 .row-card .card img {
 	height: 10em;
 }
-
-
