@@ -1,4 +1,4 @@
-package com.ipartek.formacion.controller.frontoffice;
+package com.ipartek.formacion.controller;
 
 import java.io.IOException;
 
@@ -11,7 +11,7 @@ import javax.servlet.http.HttpSession;
 
 import org.apache.log4j.Logger;
 
-import com.ipartek.formacion.controller.Alerta;
+import com.ipartek.formacion.controller.frontoffice.ProductosFrontOfficeController;
 import com.ipartek.formacion.modelo.dao.impl.UsuarioDAOImpl;
 import com.ipartek.formacion.modelo.pojo.Rol;
 import com.ipartek.formacion.modelo.pojo.Usuario;
