@@ -64,6 +64,10 @@
 				<li class="nav-item">
 					<a class="nav-link ${ ( 'api' eq param.pagina ) ? 'active' : '' }" href="views/api.jsp">API</a>
 				</li>
+				
+				<li class="nav-item">
+					<a class="nav-link ${ ( 'api' eq param.pagina ) ? 'active' : '' }" href="doc/index.html" target="_blank">Documentation</a>
+				</li>			
 
 				<!-- opciones cuando el usuario esta Logeado -->
 
